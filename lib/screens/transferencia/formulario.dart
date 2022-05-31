@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
-
 import '../../components/editor.dart';
 import '../../models/transferencia.dart';
 
+const _tituloAppBar = 'Criando transferência';
+const _rotuloCampoValor = 'Valor';
+const _dicaCampoValor = '0.00';
+const _rotuloCampoNumeroConta = 'Número da conta';
+const _dicaCampoNumeroConta = '0000-0';
+const _textoBotaoConfirmar = 'Confirmar';
+
+
 class FormularioTransferencia extends StatefulWidget {
+  const FormularioTransferencia({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return FormularioTransferenciaState();
   }
 }
@@ -22,22 +29,22 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Criando trasferência'),),
+      appBar: AppBar(title: const Text(_tituloAppBar),),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Editor(
                 controlador: _controladorCampoNumeroConta,
-                rotulo: 'Número da conta',
-                dica: '0000-00'),
+                rotulo: _rotuloCampoNumeroConta,
+                dica: _dicaCampoNumeroConta),
             Editor(
                 controlador: _controladorCampoValor,
-                rotulo: 'Valor',
-                dica: '0.00',
+                rotulo: _rotuloCampoValor,
+                dica: _dicaCampoValor,
                 icone: Icons.monetization_on),
 
             ElevatedButton(
-              child: const Text('Confirmar'),
+              child: const Text(_textoBotaoConfirmar),
               onPressed: () => _criaTransferencia(context),
             ),
           ],
@@ -50,8 +57,6 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
     final double? valor = double.tryParse(_controladorCampoValor.text);
     if(numeroConta != null && valor != null){
       final transferenciaCriada =  Transferencia(valor, numeroConta);
-      debugPrint('Criando Transferência');
-      debugPrint('$transferenciaCriada');
       Navigator.pop(context, transferenciaCriada);
     }
   }

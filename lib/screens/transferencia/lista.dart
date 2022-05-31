@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import '../../models/transferencia.dart';
 import 'formulario.dart';
 
+const _tituloAppBar = 'Transferências';
+
 class ListaTransferencias extends StatefulWidget {
+  ListaTransferencias({Key? key}) : super(key: key);
   final List<Transferencia?> _transferencias = [];
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return ListaTransferenciasState();
   }
 }
@@ -14,10 +16,9 @@ class ListaTransferencias extends StatefulWidget {
 class ListaTransferenciasState extends State<ListaTransferencias> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Transferências'),
+        title: const Text(_tituloAppBar),
       ),
       body: ListView.builder(
         itemCount: widget._transferencias.length,
@@ -30,14 +31,12 @@ class ListaTransferenciasState extends State<ListaTransferencias> {
         child: const Icon(Icons.add),
         onPressed: () {
           final Future<Transferencia?> future = Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return FormularioTransferencia();
+            return const FormularioTransferencia();
           }));
-          future.then((transferenviaRecebida) {
-            debugPrint('chegou no then future');
-            debugPrint('$transferenviaRecebida');
-            if (transferenviaRecebida != null) {
+          future.then((transferenciaRecebida) {
+            if (transferenciaRecebida != null) {
               setState(() {
-                widget._transferencias.add(transferenviaRecebida);
+                widget._transferencias.add(transferenciaRecebida);
               });}
           });
         },
@@ -54,7 +53,6 @@ class ItemTransferencia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Card(
       child: ListTile(
         leading: const Icon(Icons.monetization_on),

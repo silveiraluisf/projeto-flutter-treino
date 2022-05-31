@@ -20,7 +20,8 @@ class ByteBankApp extends StatelessWidget {
           )),
         buttonTheme: ButtonThemeData(
           buttonColor: Colors.blueAccent[400],
-          textTheme: ButtonTextTheme.primary)),
+          textTheme: ButtonTextTheme.primary)
+      ),
       home:  ListaTransferencias(),
       );
   }
