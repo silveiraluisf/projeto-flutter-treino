@@ -24,23 +24,24 @@ class HomeState extends State<Home> {
             _tituloAppBar
         ),
       ),
-      bottomNavigationBar: const SizedBox(
-        height: 50.0,
-        child: BottomAppBar(
-          color: Colors.blueGrey,
-          child: IconButton(
-            icon: Icon(Icons.home_filled),
-            onPressed: null
-          ),
-        ),
-      ),
+      bottomNavigationBar: const BottomNavigatorBar(),
       floatingActionButton: const FloatingActionButton(
           child: Icon(Icons.savings_outlined),
             onPressed: null,
             ),
-      body:
-        Center(
-          child: Column(
+      body: const HomeBody()
+    );
+  }
+}
+
+class HomeBody extends StatelessWidget {
+  const HomeBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      Center(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
               ElevatedButton(
@@ -49,10 +50,31 @@ class HomeState extends State<Home> {
               ),
               Text('Teste de texto'),
             ]
-          ),          //child:
-        ),
+        ),          //child:
       );
-    }
   }
-  
+}
 
+class BottomNavigatorBar extends StatelessWidget {
+  const BottomNavigatorBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      BottomAppBar(
+        color: Colors.blueGrey,
+        child:
+          Row(
+            children: const <Widget>[
+              IconButton(
+                icon: Icon(Icons.home_filled),
+                onPressed: null
+              ),
+              IconButton(
+              onPressed: null,
+              icon: Icon(Icons.eleven_mp)),
+            ],
+          ),
+      );
+  }
+}
