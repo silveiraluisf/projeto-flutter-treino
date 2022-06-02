@@ -27,7 +27,7 @@ class HomeState extends State<Home> {
       bottomNavigationBar: const SizedBox(
         height: 50.0,
         child: BottomAppBar(
-          color: Colors.green,
+          color: Colors.blueGrey,
           child: IconButton(
             icon: Icon(Icons.home_filled),
             onPressed: null
@@ -39,11 +39,20 @@ class HomeState extends State<Home> {
             onPressed: null,
             ),
       body:
-        const Center(
-            child: Text('Teste de texto')),
-    );
-  }
-    
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              ElevatedButton(
+                onPressed: null,
+                child: Text('Incrementar'),
+              ),
+              Text('Teste de texto'),
+            ]
+          ),          //child:
+        ),
+      );
+    }
   }
   
 

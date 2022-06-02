@@ -11,16 +11,16 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.blueGrey,
         ).copyWith(
-          secondary: Colors.blueAccent,
+          secondary: Colors.blue,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               primary: Colors.redAccent[700],
           )),
         buttonTheme: ButtonThemeData(
-          buttonColor: Colors.blueAccent[400],
+          buttonColor: Colors.red[400],
           textTheme: ButtonTextTheme.primary)
       ),
       home:  Home(),
