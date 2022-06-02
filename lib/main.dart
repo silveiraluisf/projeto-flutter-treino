@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/home/home.dart';
 import 'package:my_app/screens/transferencia/lista.dart';
 
 void main() => runApp(const ByteBankApp());
@@ -22,7 +23,7 @@ class ByteBankApp extends StatelessWidget {
           buttonColor: Colors.blueAccent[400],
           textTheme: ButtonTextTheme.primary)
       ),
-      home:  ListaTransferencias(),
+      home:  Home(),
       );
   }
 }
