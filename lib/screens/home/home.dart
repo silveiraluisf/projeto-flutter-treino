@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/transferencia/lista.dart';
 
 const _tituloAppBar = 'Home';
 
@@ -25,9 +26,12 @@ class HomeState extends State<Home> {
         ),
       ),
       bottomNavigationBar: const BottomNavigatorBar(),
-      floatingActionButton: const FloatingActionButton(
-          child: Icon(Icons.savings_outlined),
-            onPressed: null,
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.savings_outlined),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ListaTransferencias(),
+              ));
+              },
             ),
       body: const HomeBody()
     );
@@ -46,7 +50,7 @@ class HomeBody extends StatelessWidget {
             children: const <Widget>[
               ElevatedButton(
                 onPressed: null,
-                child: Text('Incrementar'),
+                child: Text('Botão'),
               ),
               Text('Teste de texto'),
             ]
@@ -72,7 +76,7 @@ class BottomNavigatorBar extends StatelessWidget {
               ),
               IconButton(
               onPressed: null,
-              icon: Icon(Icons.eleven_mp)),
+              icon: Icon(Icons.qr_code)),
             ],
           ),
       );
