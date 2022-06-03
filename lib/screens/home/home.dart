@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/screens/transferencia/lista.dart';
+import 'package:my_app/screens/contato/lista_contatos.dart';
 
 const _tituloAppBar = 'Home';
 
@@ -47,12 +48,15 @@ class HomeBody extends StatelessWidget {
       Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               ElevatedButton(
-                onPressed: null,
-                child: Text('Botão'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListaContatos(),
+                  ));
+                },
+                child: const Text('Lista de Contatos'),
               ),
-              Text('Teste de texto'),
+              const Text('Teste de texto'),
             ]
         ),          //child:
       );
